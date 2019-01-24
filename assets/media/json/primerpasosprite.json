@@ -1,0 +1,36 @@
+{"frames": {
+
+"!fire.png":
+{
+	"frame": {"x":0,"y":0,"w":384,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":384,"h":512},
+	"sourceSize": {"w":384,"h":512}
+},
+"$princess.png":
+{
+	"frame": {"x":384,"y":0,"w":96,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":256},
+	"sourceSize": {"w":96,"h":256}
+},
+"Inside_A2.png":
+{
+	"frame": {"x":0,"y":512,"w":512,"h":384},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":384},
+	"sourceSize": {"w":512,"h":384}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "primerpasosprite.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":896},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:17747299f529a668dba9d35fbb800a22:0be276931dcd07eebe8845df6a118675:a90ed520b5442cd6f381d01cd7b2177b$"
+}
+}
