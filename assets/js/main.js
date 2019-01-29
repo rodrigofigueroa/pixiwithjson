@@ -8,38 +8,19 @@ let application = PIXI.Application,
     Rectangle = PIXI.Rectangle;
 
 let app = new application({
-    width: 1440,         // default: 800
-    height: 960,        // default: 600
+    width: 96,         // default: 800
+    height: 384,        // default: 600
     antialias: true,    // default: false
-    transparent: false, // default: false
+    transparent: true, // default: false
     resolution: 1       // default: 1
 });
 
 document.getElementById('canvasdiv').appendChild(app.view);
 
-
 loader
-.add('imagen','./assets/media/json/frames.json')
-.on('progress', progreso)
+.add('imagenname','../assets/media/json/frames.json')
 .load(setup);
 
-function progreso(loader, progress){
-    console.log( loader.progress, progress.name);
-}
-
 function setup(){
-    
-    let princess, floor, clock;
-
-    let textureFloor = TextureCache['floor.png'];
-    floor = new sprite(
-        textureFloor
-    );
-    app.stage.addChild(floor);
-
-    let prin = new sprite(
-        resources['./assets/media/json/frames.json']
-    );
-
 
 }
