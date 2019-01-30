@@ -3,6 +3,7 @@ body{
     background: #34699a;
 }
 #canvasdiv{
+    width: 100%;
     cursor: pointer;
     background: #113f67;
     border: 1px dashed ;
