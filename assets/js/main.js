@@ -46,5 +46,16 @@ function setup(){
 
    treasure.x = 400;
    treasure.y = app.screen.height /2 - treasure.width/2;
-   
+
+   let tblob = TextureCache['blob.png'];
+   let blob = new sprite(tblob);
+   let blobDos = new sprite(tblob);
+   let blobTres = new sprite(tblob);
+   app.stage.addChild(blob,blobDos,blobTres);
+   blob.x = app.screen.width / 2 ;
+   blob.y = app.screen.height / 2;   
+   blobDos.x = 100;   
+   blobDos.y = app.screen.height/2;   
+   blobTres.x = 100;   
+   blobTres.y = 150;
 }
