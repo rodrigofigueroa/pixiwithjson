@@ -3,6 +3,8 @@ body{
     background: #34699a;
 }
 #canvasdiv{
+    position: absolute;
+    top: 20%;
     width: 100%;
     cursor: pointer;
     background: #113f67;
