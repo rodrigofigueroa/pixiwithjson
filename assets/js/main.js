@@ -50,7 +50,7 @@ function setup(){
    let nBlobs=5,
    spacing = 48,
    xOffset = 150;
-   for(i =0; i < nBlobs;i++){
+   for(i = 0; i < nBlobs;i++){
     let tblob = TextureCache['blob.png'];
     let newB = new sprite(tblob);
     let x = spacing * i + xOffset;
