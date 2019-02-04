@@ -21,8 +21,6 @@ loader
 .add('imagenname','../assets/images/treasureHunter.json')
 .load(setup);
 
-let princess, floor, clock;
-
 function setup(){
    let tdungeon = TextureCache['dungeon.png'];
    let dugeon = new sprite(tdungeon);
