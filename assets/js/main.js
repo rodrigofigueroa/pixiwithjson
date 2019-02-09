@@ -21,6 +21,8 @@ loader
 .add('imagenname','../assets/images/treasureHunter.json')
 .load(setup);
 
+let treasure;
+
 function setup(){
    let tdungeon = TextureCache['dungeon.png'];
    let dugeon = new sprite(tdungeon);
@@ -44,6 +46,8 @@ function setup(){
 
    treasure.x = 400;
    treasure.y = app.screen.height /2 - treasure.width/2;
+   treasure.vx =0;
+   treasurevy = 0;
 
    let nBlobs=5,
    spacing = 48,
@@ -57,9 +61,38 @@ function setup(){
     app.stage.addChild(newB);
     
    }
-  
+
+//    app.ticker.add(delta => rep(delta));
+
+//         function rep(delta){
+//             treasure.y += 1;
+//         }
+
+    // gameLoop();
+    // function gameLoop(){
+    //     requestAnimationFrame(gameLoop);        
+    //     treasure.vx =0;
+    //     treasure.vy =0;
+    //     treasure.x += treasure.vx;
+    //     treasure.y += treasure.vy;
+
+    // }
+
+    state = play;
+
+    app.ticker.add(delta => loop(delta));
+
+    function loop(delta){
+        state(delta);
+    }
+    function play(){
+        treasure.vx = -1;
+        treasure.x += treasure.vx;
+    }
 }
 
 function randomNumber(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
