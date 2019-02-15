@@ -47,7 +47,7 @@ function setup(){
    treasure.x = 400;
    treasure.y = app.screen.height /2 - treasure.width/2;
    treasure.vx =0;
-   treasurevy = 0;
+   treasure.vy = 0;
 
    let nBlobs=5,
    spacing = 48,
@@ -62,34 +62,21 @@ function setup(){
     
    }
 
-//    app.ticker.add(delta => rep(delta));
-
-//         function rep(delta){
-//             treasure.y += 1;
-//         }
-
-    // gameLoop();
-    // function gameLoop(){
-    //     requestAnimationFrame(gameLoop);        
-    //     treasure.vx =0;
-    //     treasure.vy =0;
-    //     treasure.x += treasure.vx;
-    //     treasure.y += treasure.vy;
-
-    // }
-
-    state = play;
-
-    app.ticker.add(delta => loop(delta));
-
-    function loop(delta){
-        state(delta);
-    }
-    function play(){
-        treasure.vx = -1;
-        treasure.x += treasure.vx;
-    }
+//    app.ticker.add(delta => gameLoop(delta))
+//    function gameLoop(delta){
+//        treasure.x += -0.1;
+//    }
+gameLoop();
+function gameLoop(){
+    requestAnimationFrame(gameLoop);
+    treasure.vx = 1;
+    treasure.vy = -1;
+    treasure.x += treasure.vx;
+    treasure.y += treasure.vy;
 }
+
+}
+
 
 function randomNumber(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
