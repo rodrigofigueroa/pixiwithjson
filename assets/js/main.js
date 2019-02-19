@@ -49,6 +49,10 @@ function setup(){
    treasure.vx =0;
    treasure.vy = 0;
 
+   state = play;
+
+   app.ticker.add(delta => gameLoop());
+
    let nBlobs=5,
    spacing = 48,
    xOffset = 150;
@@ -61,21 +65,16 @@ function setup(){
     app.stage.addChild(newB);
     
    }
-
-//    app.ticker.add(delta => gameLoop(delta))
-//    function gameLoop(delta){
-//        treasure.x += -0.1;
-//    }
-gameLoop();
-    function gameLoop(){
-        requestAnimationFrame(gameLoop);
-        treasure.vx = 1;
-        treasure.vy = 0;
-        treasure.x += treasure.vx;
-        treasure.y += treasure.vy;
-    }
-
+   function gameLoop(delta){
+       state(delta)
+   }
+   
+   function play(delta){
+       treasure.vx = 1;
+       treasure.x += treasure.vx;
+   }
 }
+
 
 
 function randomNumber(min, max){
