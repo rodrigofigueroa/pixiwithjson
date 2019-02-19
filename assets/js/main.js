@@ -49,7 +49,7 @@ function setup(){
    treasure.vx =0;
    treasure.vy = 0;
 
-   state = play;
+   let state = play;
 
    app.ticker.add(delta => gameLoop());
 
