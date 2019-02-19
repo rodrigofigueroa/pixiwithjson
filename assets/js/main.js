@@ -67,13 +67,13 @@ function setup(){
 //        treasure.x += -0.1;
 //    }
 gameLoop();
-function gameLoop(){
-    requestAnimationFrame(gameLoop);
-    treasure.vx = 1;
-    treasure.vy = -1;
-    treasure.x += treasure.vx;
-    treasure.y += treasure.vy;
-}
+    function gameLoop(){
+        requestAnimationFrame(gameLoop);
+        treasure.vx = 1;
+        treasure.vy = 0;
+        treasure.x += treasure.vx;
+        treasure.y += treasure.vy;
+    }
 
 }
 
