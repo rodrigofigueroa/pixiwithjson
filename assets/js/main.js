@@ -68,57 +68,35 @@ function setup(){
       right = keyboard("ArrowRight"),
       down = keyboard("ArrowDown");
 
-      left.press = () => {
-        //Change the cat's velocity when the key is pressed
-        explorer.vx = -5;
-        explorer.vy = 0;
-      };
-      
-      //Left arrow key `release` method
-      left.release = () => {
-        //If the left arrow has been released, and the right arrow isn't down,
-        //and the cat isn't moving vertically:
-        //Stop the cat
-        if (!right.isDown && explorer.vy === 0) {
-            explorer.vx = 0;
-        }
-      };
-    
-      //Up
-      up.press = () => {
-        explorer.vy = -5;
-        explorer.vx = 0;
-      };
-      up.release = () => {
-        if (!down.isDown && explorer.vx === 0) {
-          explorer.vy = 0;
-        }
-      };
-    
-      //Right
-      right.press = () => {
-        explorer.vx = 5;
-        explorer.vy = 0;
-      };
-      right.release = () => {
-        if (!left.isDown && explorer.vy === 0) {
-          explorer.vx = 0;
-        }
-      };
-    
-      //Down
-      down.press = () => {
-        explorer.vy = 5;
-        explorer.vx = 0;
-      };
-      down.release = () => {
-        if (!up.isDown && explorer.vx === 0) {
-          explorer.vy = 0;
-        }
-      };
-    
+      left.press = () =>{
+        explorer.vx += -10;
+        explorer.vy += 0;
+        explorer.x += explorer.vx;
+        explorer.y += explorer.vy;
+      }
+      up.press =  () => {
+        explorer.vx += 0;
+        explorer.vy += -10;
+        explorer.x = explorer.vx;
+        explorer.y = explorer.vy;
+      }
+      right.press = () =>{
+        explorer.vx += 10;
+        explorer.vy += 0;
+        explorer.x = explorer.vx;
+        explorer.y = explorer.vy;
+      }
+      down.press = () =>{
+        explorer.vx += 0;
+        explorer.vy += 10;
+        explorer.x = explorer.vx;
+        explorer.y = explorer.vy;
+      }
 
-
+    //   left.release = () => {
+    //    explorer.vx += 1;
+    //   explorer.vy += 1;
+    //  };
    let state = play;
 
    app.ticker.add(delta => gameLoop());
@@ -126,6 +104,7 @@ function setup(){
    function gameLoop(delta){
        state(delta)
    }
+
    
    function play(delta){
        explorer.x = explorer.vx;
