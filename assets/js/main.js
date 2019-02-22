@@ -5,7 +5,8 @@ let application = PIXI.Application,
     resources = PIXI.loader.resources,
     sprite = PIXI.Sprite,
     TextureCache = PIXI.utils.TextureCache,
-    Rectangle = PIXI.Rectangle;
+    Rectangle = PIXI.Rectangle,
+    container = PIXI.Container;
 
 let app = new application({
     width: 512,         // default: 800
@@ -49,7 +50,7 @@ function setup(){
    let explorer = new sprite(texplorer);
    app.stage.addChild(explorer);
 
-   explorer.x = 50;
+   explorer.x = 30;
    explorer.y = app.stage.height / 2 - explorer.height / 2;
    explorer.vx = 0;
    explorer.vy = 0;
@@ -63,6 +64,12 @@ function setup(){
    treasure.vx =0;
    treasure.vy = 0;
 
+   let animals = new container();
+   animals.addChild(explorer);
+   animals.addChild(treasure);
+   app.stage.addChild(animals);
+   animals.position.set(64, 64);   
+
    let left = keyboard("ArrowLeft"),
       up = keyboard("ArrowUp"),
       right = keyboard("ArrowRight"),
@@ -71,8 +78,8 @@ function setup(){
       left.press = () =>{
         explorer.vx += -10;
         explorer.vy += 0;
-        explorer.x += explorer.vx;
-        explorer.y += explorer.vy;
+        explorer.x = explorer.vx;
+        explorer.y = explorer.vy;
       }
       up.press =  () => {
         explorer.vx += 0;
@@ -93,10 +100,10 @@ function setup(){
         explorer.y = explorer.vy;
       }
 
-    //   left.release = () => {
-    //    explorer.vx += 1;
-    //   explorer.vy += 1;
-    //  };
+      left.release = () => {
+       explorer.vx += 1;
+      explorer.vy += 1;
+     };
    let state = play;
 
    app.ticker.add(delta => gameLoop());
