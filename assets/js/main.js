@@ -68,8 +68,9 @@ function setup(){
    animals.addChild(explorer);
    animals.addChild(treasure);
    app.stage.addChild(animals);
-   animals.position.set(64, 64);   
-
+   animals.position.set(50, 64); 
+   console.log(animals.toGlobal(treasure.position));
+   console.log(animals.toGlobal(explorer.position));
    let left = keyboard("ArrowLeft"),
       up = keyboard("ArrowUp"),
       right = keyboard("ArrowRight"),
@@ -99,11 +100,6 @@ function setup(){
         explorer.x = explorer.vx;
         explorer.y = explorer.vy;
       }
-
-      left.release = () => {
-       explorer.vx += 1;
-      explorer.vy += 1;
-     };
    let state = play;
 
    app.ticker.add(delta => gameLoop());
@@ -111,8 +107,6 @@ function setup(){
    function gameLoop(delta){
        state(delta)
    }
-
-   
    function play(delta){
        explorer.x = explorer.vx;
        explorer.y = explorer.vy;
